@@ -6,6 +6,7 @@ import com.temelt.issuemanagement.repository.IssueRepository;
 import com.temelt.issuemanagement.service.IssueService;
 import com.temelt.issuemanagement.util.TPage;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -37,7 +38,7 @@ public class IssueServiceImpl implements IssueService {
 
             issueDb =   issueRepository.save(issueDb);
 
-
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 
         return   modelMapper.map(issueDb,IssueDto.class);
     }

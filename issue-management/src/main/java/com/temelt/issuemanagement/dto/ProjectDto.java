@@ -1,6 +1,9 @@
 package com.temelt.issuemanagement.dto;
 
 
+import com.sun.istack.NotNull;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,12 +15,17 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ApiModel(value = "Project Data Transfer Object")
 public class ProjectDto {
+    @ApiModelProperty(required = false,value = "ID Of Project")
     private Long id;
+    @NotNull
+    @ApiModelProperty(required = true,value = "Name Of Project")
     private String projectName;
+    @NotNull
+    @ApiModelProperty(required = true,value = "Code Of Project")
     private String projectCode;
-    private Long managerId;
-    private UserDto manager;
+
 
     public Long getId() {
         return id;
@@ -43,19 +51,4 @@ public class ProjectDto {
         this.projectCode = projectCode;
     }
 
-    public Long getManagerId() {
-        return managerId;
-    }
-
-    public void setManagerId(Long managerId) {
-        this.managerId = managerId;
-    }
-
-    public UserDto getManager() {
-        return manager;
-    }
-
-    public void setManager(UserDto manager) {
-        this.manager = manager;
-    }
 }

@@ -19,7 +19,7 @@ import javax.persistence.*;
 public class Project extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "project_name", length = 300)
